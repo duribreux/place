@@ -55,13 +55,13 @@ class PixelsBloc extends Bloc<PixelsEvent, PixelsState> {
     });
 
     on<PixelsEventAdd>((event, emit) {
-      log('PixelsEventAdd: ${event.offset} ${event.color}');
       if (!_authRepository.isSignedIn) {
         emit(PixelsUnauthorized());
       } else {
         _pixelsRepository.createPixel(PixelModel(
           offset: event.offset.round(),
           color: event.color,
+          uuid: _authRepository.uid,
         ));
       }
     });
@@ -69,8 +69,8 @@ class PixelsBloc extends Bloc<PixelsEvent, PixelsState> {
     on<PixelsHistoryEventListen>((event, emit) {
       _pixelsHistorySubscription = _pixelsRepository.listenHistory().listen(
         (data) {
-          history.insert(0, data);
-          pixelsHistorySink.add(history.take(20).toList());
+          history.add(data);
+          pixelsHistorySink.add(history.reversed.toList());
         },
         onError: (error) {
           log('Stream: $error');

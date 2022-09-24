@@ -10,14 +10,16 @@ part 'pixel_model.g.dart';
 @OffsetConverter()
 @ColorConverter()
 class PixelModel extends Pixel {
-  PixelModel({
+  const PixelModel({
     required super.offset,
     required super.color,
+    required super.uuid,
   });
 
   factory PixelModel.from(Pixel other) => PixelModel(
         offset: other.offset,
         color: other.color,
+        uuid: other.uuid,
       );
 
   // coverage:ignore-start

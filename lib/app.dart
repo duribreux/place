@@ -118,9 +118,14 @@ class _AppState extends State<App> {
                             children: snapshot.data
                                     ?.map(
                                       (pixel) => ListTile(
+                                        contentPadding: const EdgeInsets.all(8),
+                                        horizontalTitleGap: 0,
                                         dense: true,
                                         visualDensity: VisualDensity.compact,
-                                        title: const Text('Author'),
+                                        title: Text(
+                                          pixel.uuid,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
                                         subtitle: Text(
                                           '(${pixel.offset.dx}, '
                                           '${pixel.offset.dy})',

@@ -11,10 +11,12 @@ PixelModel _$PixelModelFromJson(Map<String, dynamic> json) => PixelModel(
           .fromJson(json['offset'] as Map<String, dynamic>),
       color: const ColorConverter()
           .fromJson(json['color'] as Map<String, dynamic>),
+      uuid: json['uuid'] as String,
     );
 
 Map<String, dynamic> _$PixelModelToJson(PixelModel instance) =>
     <String, dynamic>{
       'offset': const OffsetConverter().toJson(instance.offset),
       'color': const ColorConverter().toJson(instance.color),
+      'uuid': instance.uuid,
     };

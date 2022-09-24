@@ -32,6 +32,6 @@ class FirebasePixelsRepository extends PixelsRepository {
 
   @override
   Stream<PixelModel> listenHistory() =>
-      _database.ref('history').onChildAdded.map((event) =>
+      _database.ref('history').limitToLast(50).onChildAdded.map((event) =>
           PixelModel.fromJson(event.snapshot.value as Map<String, dynamic>));
 }

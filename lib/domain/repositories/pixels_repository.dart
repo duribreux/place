@@ -1,5 +1,3 @@
-import 'package:firebase_database/firebase_database.dart';
-
 import '../entities/pixel.dart';
 
 abstract class PixelsRepository {
