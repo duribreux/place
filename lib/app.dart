@@ -153,16 +153,16 @@ class _AppState extends State<App> {
                       constrained: false,
                       minScale: 0.2,
                       maxScale: 15,
-                      child: Listener(
-                        onPointerDown: (event) {
-                          _pixelsBloc.add(PixelsEventAdd(
-                            event.localPosition,
-                            color,
-                          ));
-                        },
-                        child: SizedBox(
-                          width: 1920,
-                          height: 1080,
+                      child: SizedBox(
+                        width: 1920,
+                        height: 1080,
+                        child: Listener(
+                          onPointerDown: (event) {
+                            _pixelsBloc.add(PixelsEventAdd(
+                              event.localPosition,
+                              color,
+                            ));
+                          },
                           child: CustomPaint(
                             size: const Size(1920, 1080),
                             painter: MyPainter(
