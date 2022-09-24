@@ -11,7 +11,7 @@ import 'injector.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await dotenv.load(fileName: 'env');
+  await dotenv.load(fileName: 'dotenv');
   await initFirebase(Environment.prod);
   configureDependencies(Environment.prod);
   runApp(EasyLocalization(
