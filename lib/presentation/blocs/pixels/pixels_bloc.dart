@@ -61,7 +61,7 @@ class PixelsBloc extends Bloc<PixelsEvent, PixelsState> {
         _pixelsRepository.createPixel(PixelModel(
           offset: event.offset.round(),
           color: event.color,
-          uuid: _authRepository.uid,
+          uuid: _authRepository.uid ?? 'Unknown',
         ));
       }
     });

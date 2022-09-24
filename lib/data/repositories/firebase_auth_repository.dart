@@ -19,5 +19,5 @@ class FirebaseAuthRepository extends AuthRepository {
   bool get isSignedIn => _firebaseAuth.currentUser != null;
 
   @override
-  String get uid => _firebaseAuth.currentUser!.uid;
+  String? get uid => _firebaseAuth.currentUser?.uid;
 }
