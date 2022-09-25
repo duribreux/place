@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project was written as a support for my [Medium article]() and is currently running on this [website](https://place-3fcc2.web.app/#/).
+This project was written as a support for my [Medium article](https://betterprogramming.pub/build-a-collaborative-pixel-art-app-with-flutter-and-firebase-d4a027b4534b) and is currently running on this [website](https://place-3fcc2.web.app/#/).
 
 ## Getting Started
 
