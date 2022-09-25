@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../domain/entities/pixel.dart';
 import '../blocs/pixels/pixels_bloc.dart';
@@ -26,10 +27,12 @@ class CanvasViewer extends StatelessWidget {
           height: 1080,
           child: Listener(
             onPointerDown: (event) {
-              pixelsBloc.add(PixelsEventAdd(
-                event.localPosition,
-                color,
-              ));
+              if (RawKeyboard.instance.keysPressed.isEmpty) {
+                pixelsBloc.add(PixelsEventAdd(
+                  event.localPosition,
+                  color,
+                ));
+              }
             },
             child: CustomPaint(
               size: const Size(1920, 1080),
