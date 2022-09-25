@@ -62,6 +62,7 @@ class PixelsBloc extends Bloc<PixelsEvent, PixelsState> {
           offset: event.offset.round(),
           color: event.color,
           uuid: _authRepository.uid ?? 'Unknown',
+          createdAt: DateTime.now(),
         ));
       }
     });

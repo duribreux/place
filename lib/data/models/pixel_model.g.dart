@@ -12,6 +12,7 @@ PixelModel _$PixelModelFromJson(Map<String, dynamic> json) => PixelModel(
       color: const ColorConverter()
           .fromJson(json['color'] as Map<String, dynamic>),
       uuid: json['uuid'] as String,
+      createdAt: const DateTimeConverter().fromJson(json['createdAt'] as int),
     );
 
 Map<String, dynamic> _$PixelModelToJson(PixelModel instance) =>
@@ -19,4 +20,5 @@ Map<String, dynamic> _$PixelModelToJson(PixelModel instance) =>
       'offset': const OffsetConverter().toJson(instance.offset),
       'color': const ColorConverter().toJson(instance.color),
       'uuid': instance.uuid,
+      'createdAt': const DateTimeConverter().toJson(instance.createdAt),
     };

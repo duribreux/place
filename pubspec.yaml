@@ -47,6 +47,7 @@ dependencies:
   flutter_dotenv: ^5.0.2
   get_it: ^7.2.0
   injectable: ^1.5.3
+  jiffy: ^5.0.0
   json_annotation: ^4.6.0
 
 dev_dependencies:
