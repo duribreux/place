@@ -17,7 +17,7 @@ part 'pixels_state.dart';
 
 @injectable
 class PixelsBloc extends Bloc<PixelsEvent, PixelsState> {
-  final List<Pixel> pixels = [];
+  final Map<int, Pixel> pixels = {};
   final List<Pixel> history = [];
 
   final PixelsRepository _pixelsRepository;
@@ -44,8 +44,8 @@ class PixelsBloc extends Bloc<PixelsEvent, PixelsState> {
     on<PixelsEventListen>((event, emit) {
       _pixelsSubscription = _pixelsRepository.listenPixels().listen(
         (data) {
-          pixels.add(data);
-          pixelsSink.add(pixels);
+          pixels[data.offset.hashCode] = data;
+          pixelsSink.add(pixels.values.toList());
         },
         onError: (error) {
           log('Stream: $error');
