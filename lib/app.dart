@@ -36,6 +36,7 @@ class _AppState extends State<App> {
         supportedLocales: context.supportedLocales,
         locale: context.locale,
         home: Scaffold(
+          backgroundColor: Colors.white,
           appBar: AppBar(
             elevation: 16,
             backgroundColor: const Color(0xAF0F0F0F),
