@@ -44,12 +44,6 @@ class PixelsBloc extends Bloc<PixelsEvent, PixelsState> {
     on<PixelsEventListen>((event, emit) {
       _pixelsSubscription = _pixelsRepository.listenPixels().listen(
         (data) {
-          // Temporary fix because the same pixel is duplicated sometimes.
-          if (pixels[data.offset.hashCode] != null &&
-              pixels[data.offset.hashCode]!.createdAt.isAfter(data.createdAt)) {
-            return;
-          }
-
           pixels[data.offset.hashCode] = data;
           pixelsSink.add(pixels.values.toList());
         },

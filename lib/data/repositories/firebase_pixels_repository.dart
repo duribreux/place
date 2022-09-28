@@ -24,8 +24,9 @@ class FirebasePixelsRepository extends PixelsRepository {
 
   @override
   Stream<PixelModel> listenPixels() => StreamGroup.merge([
-        _database.ref('pixels').onChildAdded.map((event) =>
-            PixelModel.fromJson(event.snapshot.value as Map<String, dynamic>)),
+        _database.ref('pixels').orderByChild('createdAt').onChildAdded.map(
+            (event) => PixelModel.fromJson(
+                event.snapshot.value as Map<String, dynamic>)),
         _database.ref('pixels').onChildChanged.map((event) =>
             PixelModel.fromJson(event.snapshot.value as Map<String, dynamic>)),
       ]);
